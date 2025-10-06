@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover The Nook Cafe in Pune. Handcrafted food and 100% Arabica coffee in a cozy atmosphere. Menu, reservations, and more.">
+    <meta name="keywords" content="cafe, Pune, handcrafted food, Arabica coffee, menu, reservations, cozy spot">
+    <meta name="author" content="The Nook Cafe">
+    <title>The Nook Cafe | Pune - Handcrafted Food & Arabica Coffee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        
+        :root {
+            --primary-color: #8B4513;
+            --accent-color: #D2691E;
+            --secondary-color: #F5DEB3;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #FFF;
+            --shadow-light: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 25px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+        }
+        * {margin:0; padding:0; box-sizing:border-box;}
+        body {font-family:'Poppins',sans-serif; line-height:1.6; color:var(--text-dark); background-color:var(--secondary-color);}
+        .container {max-width:1200px; margin:0 auto; padding:0 20px;}
+        .section-title {text-align:center; margin-bottom:50px;}
+        .section-title h2 {font-size:2.5rem; font-weight:700; color:var(--primary-color); position:relative; display:inline-block;}
+        .section-title h2::after {content:''; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:50px; height:3px; background:var(--accent-color);}
+        header {background-color:var(--primary-color); color:var(--white); padding:15px 0; position:fixed; width:100%; top:0; z-index:100; box-shadow:var(--shadow-light);}
+        .header-container {display:flex; justify-content:space-between; align-items:center;}
+        .logo {font-size:28px; font-weight:700; color:var(--white); text-decoration:none; display:flex; align-items:center; font-family:'Caveat', cursive;}
+        .logo i {margin-right:10px; color:var(--accent-color);}
+        nav ul {display:flex; list-style:none;}
+        nav ul li {margin-left:30px;}
+        nav ul li a {color:var(--white); text-decoration:none; font-weight:500; transition:var(--transition);}
+        nav ul li a:hover {color:var(--accent-color);}
+        .hero {height:100vh; position:relative; margin-top:70px; overflow:hidden; background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size:cover; background-position:center; background-attachment:fixed;}
+        .hero-content {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; color:var(--white); text-shadow:2px 2px 4px rgba(0,0,0,0.7); max-width:800px; width:90%; animation:fadeInUp 1s ease;}
+        @keyframes fadeInUp {from {opacity:0; transform:translate(-50%, -40%);} to {opacity:1; transform:translate(-50%, -50%);}}
+        .hero-content h1 {font-size:3.5rem; margin-bottom:20px; font-weight:700; font-family:'Caveat', cursive;}
+        .hero-content p {font-size:1.3rem; margin-bottom:30px;}
+        .btn {display:inline-block; background-color:var(--accent-color); color:var(--white); padding:15px 35px; text-decoration:none; border-radius:50px; font-weight:600; transition:var(--transition); box-shadow:var(--shadow-light);}
+        .btn:hover {background-color:var(--primary-color); transform:translateY(-5px); box-shadow:var(--shadow-hover);}
+        .about {padding:80px 0; background:var(--white);}
+        .about-content {display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+        .about-text h3 {font-size:2rem; color:var(--primary-color); margin-bottom:20px; font-family:'Caveat', cursive;}
+        .about-text p {font-size:1.1rem; margin-bottom:20px;}
+        .about-slideshow {position:relative; width:100%; height:400px; overflow:hidden; border-radius:20px; box-shadow:var(--shadow-hover); transition:var(--transition);}
+        .about-slide {position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; transition:opacity 1.5s ease-in-out; background-size:cover; background-position:center;}
+        .about-slide.active {opacity:1;}
+        .about-slideshow:hover {cursor:pointer;} /* Optional: Indicate interactivity */
+        .about-image {position:relative;} /* Wrapper for slideshow */
+        .menu {padding:80px 0; background:var(--secondary-color);}
+        .menu-container {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px;}
+        .menu-card {background:var(--white); border-radius:20px; padding:30px; text-align:center; box-shadow:var(--shadow-light); transition:var(--transition); position:relative; overflow:hidden;}
+        .menu-card::before {content:''; position:absolute; top:0; left:0; right:0; height:5px; background:var(--accent-color);}
+        .menu-card:hover {transform:translateY(-10px); box-shadow:var(--shadow-hover);}
+        .menu-icon {font-size:50px; color:var(--accent-color); margin-bottom:20px;}
+        .menu-card h3 {font-size:1.8rem; color:var(--primary-color); margin-bottom:15px; font-family:'Caveat', cursive;}
+        .menu-card p {color:var(--text-light);}
+        .gallery {padding:80px 0; background:var(--white);}
+        .gallery-container {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px;}
+        .gallery-item {position:relative; overflow:hidden; border-radius:15px; box-shadow:var(--shadow-light);}
+        .gallery-item img {width:100%; height:300px; object-fit:cover; transition:var(--transition);}
+        .gallery-item:hover img {transform:scale(1.1);}
+
+/* Mobile adjustment for smaller screens */
+@media(max-width:768px){
+    .gallery-container {grid-template-columns:1fr; gap:15px;}
+    .gallery-item img {height:250px;} /* Reduced height on mobile for better fit */
+    .about-content {grid-template-columns:1fr; gap:30px; text-align:center;}
+    .about-slideshow {height:300px;} /* Adjust height for mobile */
+}
+        .booking {padding:80px 0; background:var(--secondary-color);}
+        .booking-form {max-width:600px; margin:0 auto; background:var(--white); padding:40px; border-radius:20px; box-shadow:var(--shadow-light);}
+        .booking-form h3 {font-size:2rem; color:var(--primary-color); margin-bottom:20px; text-align:center; font-family:'Caveat', cursive;}
+        .form-group {margin-bottom:20px;}
+        .form-group label {display:block; margin-bottom:5px; font-weight:500;}
+        .form-group input, .form-group select, .form-group textarea {width:100%; padding:12px; border:1px solid #ddd; border-radius:10px; font-family:inherit;}
+        .form-group textarea {height:100px; resize:vertical;}
+        .location {padding:80px 0; background:var(--white);}
+        .map-container {border-radius:20px; overflow:hidden; box-shadow:var(--shadow-hover); margin-top:40px;}
+        .map-container iframe {width:100%; height:450px; border:0;}
+        .testimonials {padding:80px 0; background:var(--secondary-color); text-align:center;}
+        .testimonials-container {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px; max-width:1000px; margin:0 auto;}
+        .testimonial {background:var(--white); padding:30px; border-radius:15px; box-shadow:var(--shadow-light); font-style:italic; font-size:1.1rem; color:var(--text-dark);}
+        .testimonial-author {margin-top:15px; font-style:normal; font-weight:600; color:var(--primary-color);}
+        footer {background-color:var(--text-dark); color:var(--white); padding:40px 0 20px;}
+        .footer-content {display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;}
+        .footer-section {flex:1; min-width:250px;}
+        .footer-section h3 {font-size:1.5rem; margin-bottom:20px; color:var(--accent-color); font-family:'Caveat', cursive;}
+        .contact-info {list-style:none;}
+        .contact-info li {margin-bottom:15px; display:flex; align-items:center;}
+        .contact-info i {margin-right:10px; color:var(--accent-color); width:20px;}
+        .social-icons {display:flex; gap:15px; margin-top:20px;}
+        .social-icons a {color:var(--white); font-size:1.5rem; transition:var(--transition);}
+        .social-icons a:hover {color:var(--accent-color);}
+        .copyright {text-align:center; margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); color:var(--text-light);}
+        .quick-links {list-style:none;}
+        .quick-links li {margin-bottom:10px;}
+        .quick-links a {color:var(--white); text-decoration:none; transition:var(--transition);}
+        .quick-links a:hover {color:var(--accent-color);}
+        @media(max-width:768px){
+            .header-container {justify-content:space-between;}
+            nav ul {flex-direction:column; background:var(--primary-color); position:absolute; top:70px; right:-250px; width:250px; padding:20px; transition:var(--transition); box-shadow:var(--shadow-light);}
+            nav ul.active {right:0;}
+            nav ul li {margin:15px 0; text-align:left;}
+            .burger {display:block; font-size:28px; cursor:pointer; color:var(--white);}
+            .hero-content h1 {font-size:2.5rem;}
+            .about-content {grid-template-columns:1fr; gap:30px; text-align:center;}
+            .menu-container {grid-template-columns:1fr; gap:20px;}
+            .gallery-container {grid-template-columns:1fr; gap:15px;}
+            .testimonials-container {grid-template-columns:1fr;}
+            .footer-content {flex-direction:column; text-align:center;}
+            .booking-form {padding:20px;}
+        }
+        .burger {display:none;}
+        .fade-in {opacity:0; transform:translateY(30px); transition:var(--transition);}
+        .fade-in.visible {opacity:1; transform:translateY(0);}
+        html {scroll-behavior: smooth;}
+        .gallery {padding:80px 0; background:var(--white);}
+.gallery-container {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px;}
+.gallery-item {position:relative; overflow:hidden; border-radius:15px; box-shadow:var(--shadow-light);}
+.gallery-item img {width:100%; height:300px; object-fit:cover; transition:var(--transition);}
+.gallery-item:hover img {transform:scale(1.1);}
+
+/* Mobile adjustment for smaller screens */
+@media(max-width:768px){
+    .gallery-container {grid-template-columns:1fr; gap:15px;}
+    .gallery-item img {height:250px;} /* Reduced height on mobile for better fit */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="#home" class="logo"><i class="fas fa-coffee"></i> The Nook Cafe</a>
+            <div class="burger"><i class="fas fa-bars"></i></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#booking">Booking</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to The Nook</h1>
+            <p>Indulge in handcrafted food and premium 100% Arabica coffee in Pune's coziest corner.</p>
+            <a href="#booking" class="btn">Reserve a Table</a>
+        </div>
+    </section>
+
+    <section id="about" class="about fade-in">
+        <div class="container">
+            <div class="section-title">
+                <h2>About The Nook Cafe</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Cozy Escape in Pune</h3>
+                    <p>At The Nook Cafe, we celebrate the art of handcrafted food made with fresh, local ingredients. Pair it with our signature 100% Arabica coffee, sourced from the finest estates and roasted to perfection.</p>
+                    <p>Whether you're grabbing a quick espresso or settling in for a leisurely brunch, our warm ambiance and attentive service make every visit special.</p>
+                    <a href="#about" class="btn">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <div class="about-slideshow">
+                        <div class="about-slide active" style="background-image: url('https://images.unsplash.com/photo-1554118811-9b9bfa2c7d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+                        <div class="about-slide" style="background-image: url('https://plus.unsplash.com/premium_photo-1675435644687-562e8042b9db?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2FmZXxlbnwwfHwwfHx8MA%3D%3D');"></div>
+                        <div class="about-slide" style="background-image: url('https://images.unsplash.com/photo-1481833761820-0509d3217039?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNhZmV8ZW58MHx8MHx8fDA%3D');"></div>
+                        <div class="about-slide" style="background-image: url('https://images.unsplash.com/photo-1681072368184-a5a906887cf2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNhZmUlMjBmb29kfGVufDB8fDB8fHww');"></div>
+                        <div class="about-slide" style="background-image: url('https://images.unsplash.com/photo-1670710029405-ad968b51b6dc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGNhZmUlMjBmb29kfGVufDB8fDB8fHww');"></div>
+                        <div class="about-slide" style="background-image: url('https://images.unsplash.com/photo-1666770002650-053dd70866af?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzJ8fGNhZmUlMjBmb29kfGVufDB8fDB8fHww');"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu fade-in">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Menu Highlights</h2>
+            </div>
+            <div class="menu-container">
+                <div class="menu-card fade-in">
+                    <div class="menu-icon"><i class="fas fa-coffee"></i></div>
+                    <h3>100% Arabica Coffee</h3>
+                    <p>From smooth lattes to bold espressos, our ethically sourced beans deliver unmatched flavor in every sip.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Handcrafted Pastries</h3>
+                    <p>Freshly baked croissants, scones, and cakes, handmade daily with love and premium ingredients.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-icon"><i class="fas fa-hamburger"></i></div>
+                    <h3>Gourmet Sandwiches</h3>                    <p>Artisan breads filled with seasonal veggies, cheeses, and proteins for a satisfying bite.</p>
+                </div>
+                <div class="menu-card fade-in">
+                    <div class="menu-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Fresh Salads & Bowls</h3>
+                    <p>Nutritious, vibrant options packed with superfoods and house-made dressings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery fade-in">
+        <div class="container">
+            <div class="section-title">
+                <h2>Gallery</h2>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="images/nook1.jpeg" alt="Nook Cafe Image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/nook2.jpeg" alt="Nook Cafe Image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/nook3.jpeg" alt="Nook Cafe Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/nook4.jpeg" alt="Nook Cafe Image 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/nook5.jpeg" alt="Nook Cafe Image 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/nook6.jpeg" alt="Nook Cafe Image 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/nook7.jpeg" alt="Nook Cafe Image 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/nook8.jpeg" alt="Nook Cafe Image 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/nook9.jpeg" alt="Nook Cafe Image 9">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="booking fade-in">
+        <div class="container">
+            <div class="section-title">
+                <h2>Reserve a Table</h2>
+            </div>
+            <form class="booking-form" action="#" method="post">
+                <h3>Book Your Spot</h3>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Preferred Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Select</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3-4">3-4 People</option>
+                        <option value="5+">5+ People</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Special Requests</label>
+                    <textarea id="message" name="message" placeholder="Any special requests or notes?"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width:100%; margin-top:20px;">Submit Reservation</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact" class="location fade-in">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <p style="text-align:center; font-size:1.1rem; margin-bottom:40px;">Nestled in the heart of Pune, The Nook is your go-to spot for a relaxing coffee break. Address: Shop No. 1, Lane 5, Koregaon Park, Pune, Maharashtra 411001. Phone: +91 12345 67890 | Email: info@thenookcafe.com</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3787.7777777777775!2d73.85674331531123!3d18.520430407177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf506ca3d827%3A0xdbc1a5690dddf67a!2sTHE%20NOOK%20-%20all%20day%20dining!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials fade-in">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Guests Say</h2>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <p>"The best Arabica coffee in Pune! Cozy vibe and amazing handcrafted pastries. Highly recommend!"</p>
+                    <div class="testimonial-author">- Priya S.</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Perfect spot for brunch. The gourmet sandwiches are fresh and flavorful. Great service too!"</p>
+                    <div class="testimonial-author">- Rahul M.</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Love the ambiance and the fresh salads. A true nook to unwind in busy Pune."</p>
+                    <div class="testimonial-author">- Anjali K.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Nook Cafe</h3>
+                    <p>Your cozy escape in Pune for handcrafted food and premium Arabica coffee. Visit us today!</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="quick-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#booking">Booking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Shop No. 1, Lane 5, Koregaon Park, Pune, Maharashtra 411001</li>
+                        <li><i class="fas fa-phone"></i> +91 12345 67890</li>
+                        <li><i class="fas fa-envelope"></i> info@thenookcafe.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sun: 8AM - 10PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 The Nook Cafe. All rights reserved. | Designed with ❤️ for Pune's coffee lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Script loaded ✅");
+
+    // ✅ About slideshow
+    const slides = document.querySelectorAll('.about-slide');
+    let currentSlide = 0;
+    let slideInterval;
+    const slideshow = document.querySelector('.about-slideshow');
+
+    function showSlide(index) {
+        slides.forEach((s, i) => {
+            s.style.opacity = (i === index) ? "1" : "0";
+            s.classList.toggle("active", i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function startSlideshow() {
+        if (slides.length === 0) return;
+        showSlide(currentSlide);
+        slideInterval = setInterval(nextSlide, 4000);
+    }
+
+    function stopSlideshow() {
+        clearInterval(slideInterval);
+    }
+
+    if (slideshow && slides.length > 0) {
+        startSlideshow();
+        slideshow.addEventListener("mouseenter", stopSlideshow);
+        slideshow.addEventListener("mouseleave", startSlideshow);
+    }
+
+    // ✅ Burger menu toggle
+    const burger = document.querySelector('.burger');
+    const navUl = document.querySelector('nav ul');
+    if (burger && navUl) {
+        burger.addEventListener('click', () => navUl.classList.toggle('active'));
+        navUl.querySelectorAll('a').forEach(link =>
+            link.addEventListener('click', () => navUl.classList.remove('active'))
+        );
+    }
+
+    // ✅ Fade-in on scroll
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ✅ Booking form
+    const bookingForm = document.querySelector('.booking-form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', e => {
+            e.preventDefault();
+            alert("Reservation submitted! We'll contact you soon to confirm.");
+        });
+    }
+});
+</script>
+
+
+</body>
+</html>
